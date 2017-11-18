@@ -7,6 +7,10 @@
 *.pm.tdy
 *.bs
 
+# Carton
+/local/
+/cpanfile.snapshot
+
 # Devel::Cover
 cover_db/
 
@@ -15,6 +19,7 @@ nytprof.out
 
 # Dizt::Zilla
 /.build/
+/Test-Subtest-Attribute-*
 
 # Module::Build
 _build/
