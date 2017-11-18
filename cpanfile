@@ -4,6 +4,8 @@ on 'configure' => sub {
 
 on 'build' => sub {
     requires 'Archive::Tar::Wrapper', '0.15';
+    requires 'Dist::Zilla::Plugin::ChangelogFromGit';
+    requires 'Dist::Zilla::Plugin::CopyFilesFromBuild';
     requires 'Dist::Zilla::Plugin::GithubMeta';
     requires 'Dist::Zilla::Plugin::MetaTests';
     requires 'Dist::Zilla::Plugin::NextRelease';
