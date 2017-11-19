@@ -2,7 +2,12 @@ on 'configure' => sub {
     requires 'ExtUtils::MakeMaker',
 };
 
-on 'build' => sub {
+on 'test' => sub {
+    requires 'English';
+    requires 'Test::More', '0.99';
+};
+
+on 'develop' => sub {
     requires 'Archive::Tar::Wrapper', '0.15';
     requires 'Dist::Zilla::Plugin::ChangelogFromGit';
     requires 'Dist::Zilla::Plugin::CopyFilesFromBuild';
@@ -22,14 +27,6 @@ on 'build' => sub {
     requires 'Dist::Zilla::PluginBundle::Git';
     requires 'Pod::Coverage::TrustPod';
     requires 'Software::License::Perl_5';
-};
-
-on 'test' => sub {
-    requires 'English';
-    requires 'Test::More', '0.99';
-};
-
-on 'develop' => sub {
     requires 'Test::Perl::Critic';
     requires 'Test::Pod', '1.14';
     requires 'Test::TestCoverage';
