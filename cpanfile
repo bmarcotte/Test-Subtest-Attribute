@@ -1,5 +1,10 @@
 on 'configure' => sub {
-    requires 'ExtUtils::MakeMaker',
+    requires 'ExtUtils::MakeMaker';
+};
+
+on 'runtime' => sub {
+    requires 'Attribute::Handlers';
+    requires 'Test::Builder';
 };
 
 on 'test' => sub {
