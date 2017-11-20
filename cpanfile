@@ -25,6 +25,7 @@ on 'develop' => sub {
     requires 'Dist::Zilla::Plugin::PodWeaver';
     requires 'Dist::Zilla::Plugin::Prereqs::FromCPANfile';
     requires 'Dist::Zilla::Plugin::Test::Compile';
+    requires 'Dist::Zilla::Plugin::Test::Kwalitee';
     requires 'Dist::Zilla::Plugin::Test::MinimumVersion';
     requires 'Dist::Zilla::Plugin::Test::Perl::Critic';
     requires 'Dist::Zilla::Plugin::Test::Portability';
