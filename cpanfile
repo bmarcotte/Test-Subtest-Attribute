@@ -18,6 +18,7 @@ on 'develop' => sub {
     requires 'Dist::Zilla::Plugin::CopyFilesFromBuild';
     requires 'Dist::Zilla::Plugin::GithubMeta';
     requires 'Dist::Zilla::Plugin::MetaTests';
+    requires 'Dist::Zilla::Plugin::MinimumPerl';
     requires 'Dist::Zilla::Plugin::NextRelease';
     requires 'Dist::Zilla::Plugin::PodSyntaxTests';
     requires 'Dist::Zilla::Plugin::PodWeaver';
