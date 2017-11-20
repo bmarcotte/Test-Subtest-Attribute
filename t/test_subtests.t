@@ -35,38 +35,6 @@ subtest 'use' => sub {
     return;
 };
 
-subtest 'run()' => sub {
-    my $script = 't/fixtures/bin/simple_subtest_script.pl';
-    my @expected_output = (
-        '# Subtest: foo',
-        'ok 1 - Dummy subtest foo',
-        '1..1',
-        'ok 1 - foo',
-        '# Subtest: name for bar',
-        'ok 1 - Dummy subtest bar',
-        '1..1',
-        'ok 2 - name for bar',
-        '1..2',
-    );
-
-    my $parser = TAP::Parser->new( { source => $script } );
-    my $line_num = 0;
-    while ( my $result = $parser->next() ) {
-        $line_num++;
-
-        my $output   = $result->as_string();
-        my $expected = $expected_output[ $line_num - 1 ];
-        if ( ! $expected ) {
-            fail( "Saw unexpected line of output: $output" );
-            last;
-        }
-
-        like( $output, qr/\Q$expected\E/msx, "Line $line_num of test output has expected content: $expected" );
-    }
-
-    return;
-};
-
 subtest 'Saw expected TAP from fixture: simple_subtest_script.pl' => sub {
     return script_ok(
         't/fixtures/bin/simple_subtest_script.pl',
