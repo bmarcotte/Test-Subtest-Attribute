@@ -10,12 +10,12 @@ use warnings;
 
   use Test::More;
   use Test::Subtest::Attribute qw( subtests );
-  
+
   sub subtest_foo :Subtest {
       ok( 1, 'foo is OK' );
       return 1;
   }
-  
+
   sub subtest_bar :Subtest( 'name for bar' ) {
       ok( 1, 'bar is OK' );
       return 1;
@@ -23,7 +23,7 @@ use warnings;
 
   subtests()->run();
   done_testing();
-  
+
 =head1 DESCRIPTION
 
 This module provides a simple way, using a subroutine attribute called C<:Subtest>, to declare normal subroutines to be subtests in a test script.
@@ -94,7 +94,11 @@ sub UNIVERSAL::Subtest : ATTR(CODE) {       ## no critic (Capitalization)
         $sub_name = *{ $symbol }{NAME};
     }
 
-    my @args = ref $data ? @{ $data } : ();
+    my @args = ();
+    if ( defined $data ) {
+        @args = ref $data ? @{ $data } : ( $data );
+    }
+
     my ( $name, $append_prepend ) = @args;
     $append_prepend ||= 'append';
     if ( $sub_name && ! $name ) {
